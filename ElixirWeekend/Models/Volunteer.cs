@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ElixirWeekend.Models
 {
-    public class Volonter:Osoba
+    public class Volunteer :Person
     {
     }
 }

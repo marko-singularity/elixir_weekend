@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ElixirWeekend.Repository.Interfaces
 {
-    interface IApotekaRepozitorijum
+    interface IPharmacyRepository
     {
-        public ICollection<Proizvod> GetProizvodi();
+        public ICollection<Product> GetProducts();
 
     }
 }

@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace ElixirWeekend.Models
 {
-    public class TipProizvoda
+    public class ProductType
     {
         public int Id { get; set; }
-        public string Naziv { get; set; }
-        public string Opis { get; set; }
-        public string UrlSlike { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string ImageUrl { get; set; }
     }
 }
