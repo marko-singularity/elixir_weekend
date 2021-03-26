@@ -66,6 +66,8 @@ namespace ElixirWeekend
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
+
+            app.UseAuthentication();
         }
     }
 }

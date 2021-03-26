@@ -1,5 +1,5 @@
 import { Action, Reducer } from 'redux';
-import { AppThunkAction } from './';
+import { pThunkAction } from './';
 
 // -----------------
 // STATE - This defines the type of data maintained in the Redux store.
@@ -19,7 +19,7 @@ export interface WeatherForecast {
 
 // -----------------
 // ACTIONS - These are serializable (hence replayable) descriptions of state transitions.
-// They do not themselves have any side-effects; they just describe something that is going to happen.
+// They do not themselves have any side-effects; they just describe something that is going to hpen.
 
 interface RequestWeatherForecastsAction {
     type: 'REQUEST_WEATHER_FORECASTS';
@@ -41,10 +41,10 @@ type KnownAction = RequestWeatherForecastsAction | ReceiveWeatherForecastsAction
 // They don't directly mutate state, but they can have external side-effects (such as loading data).
 
 export const actionCreators = {
-    requestWeatherForecasts: (startDateIndex: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
+    requestWeatherForecasts: (startDateIndex: number): pThunkAction<KnownAction> => (dispatch, getState) => {
         // Only load data if it's something we don't already have (and are not already loading)
-        const appState = getState();
-        if (appState && appState.weatherForecasts && startDateIndex !== appState.weatherForecasts.startDateIndex) {
+        const pState = getState();
+        if (pState && pState.weatherForecasts && startDateIndex !== pState.weatherForecasts.startDateIndex) {
             fetch(`weatherforecast`)
                 .then(response => response.json() as Promise<WeatherForecast[]>)
                 .then(data => {

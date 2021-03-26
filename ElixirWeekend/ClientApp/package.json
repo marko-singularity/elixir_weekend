@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.3.1",
+    "bootstr": "^4.3.1",
     "connected-react-router": "6.2.1",
     "history": "4.7.2",
     "jquery": "^3.4.1",
@@ -15,7 +15,7 @@
     "react-router": "4.3.1",
     "react-router-dom": "4.3.1",
     "react-scripts": "^3.0.1",
-    "reactstrap": "7.0.2",
+    "reactstr": "7.0.2",
     "redux": "4.0.1",
     "redux-thunk": "2.3.0",
     "typescript": "3.2.2"
@@ -29,7 +29,7 @@
     "@types/react-redux": "6.0.11",
     "@types/react-router": "4.4.3",
     "@types/react-router-dom": "4.3.1",
-    "@types/reactstrap": "6.4.3",
+    "@types/reactstr": "6.4.3",
     "cross-env": "5.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-flowtype": "2.50.3",
@@ -46,7 +46,7 @@
     "lint": "eslint ./src/**/*.ts ./src/**/*.tsx"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-p"
   },
   "browserslist": [
     ">0.2%",

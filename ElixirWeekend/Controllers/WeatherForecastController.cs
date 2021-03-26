@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ElixirWeekend.Controllers
 {
-    [ApiController]
+    [iController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {

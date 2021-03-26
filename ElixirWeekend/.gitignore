@@ -71,7 +71,7 @@ _Chutzpah*
 
 # Visual C++ cache files
 ipch/
-*.aps
+*.s
 *.ncb
 *.opendb
 *.opensdf
@@ -82,7 +82,7 @@ ipch/
 *.psess
 *.vsp
 *.vspx
-*.sap
+*.s
 
 # TFS 2012 Local Workspace
 $tf/
@@ -157,11 +157,11 @@ csx/
 ecf/
 rcf/
 
-# Microsoft Azure ApplicationInsights config file
-ApplicationInsights.config
+# Microsoft Azure plicationInsights config file
+plicationInsights.config
 
-# Windows Store app package directory
-AppPackages/
+# Windows Store p package directory
+pPackages/
 BundleArtifacts/
 
 # Visual Studio cache files

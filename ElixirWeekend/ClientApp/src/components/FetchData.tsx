@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
-import { ApplicationState } from '../store';
+import { plicationState } from '../store';
 import * as WeatherForecastsStore from '../store/WeatherForecasts';
 
 // At runtime, Redux will merge together...
@@ -51,7 +51,7 @@ class FetchData extends React.PureComponent<WeatherForecastProps> {
           </tr>
         </thead>
         <tbody>
-          {this.props.forecasts.map((forecast: WeatherForecastsStore.WeatherForecast) =>
+          {this.props.forecasts.m((forecast: WeatherForecastsStore.WeatherForecast) =>
             <tr key={forecast.date}>
               <td>{forecast.date}</td>
               <td>{forecast.temperatureC}</td>
@@ -79,6 +79,6 @@ class FetchData extends React.PureComponent<WeatherForecastProps> {
 }
 
 export default connect(
-  (state: ApplicationState) => state.weatherForecasts, // Selects which state properties are merged into the component's props
+  (state: plicationState) => state.weatherForecasts, // Selects which state properties are merged into the component's props
   WeatherForecastsStore.actionCreators // Selects which action creators are merged into the component's props
 )(FetchData as any);

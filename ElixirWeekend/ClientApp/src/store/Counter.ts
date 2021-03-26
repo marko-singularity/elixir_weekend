@@ -9,7 +9,7 @@ export interface CounterState {
 
 // -----------------
 // ACTIONS - These are serializable (hence replayable) descriptions of state transitions.
-// They do not themselves have any side-effects; they just describe something that is going to happen.
+// They do not themselves have any side-effects; they just describe something that is going to hpen.
 // Use @typeName and isActionType for type detection that works even after serialization/deserialization.
 
 export interface IncrementCountAction { type: 'INCREMENT_COUNT' }

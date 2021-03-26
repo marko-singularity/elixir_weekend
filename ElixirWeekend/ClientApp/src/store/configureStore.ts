@@ -1,10 +1,10 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import { plyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { History } from 'history';
-import { ApplicationState, reducers } from './';
+import { plicationState, reducers } from './';
 
-export default function configureStore(history: History, initialState?: ApplicationState) {
+export default function configureStore(history: History, initialState?: plicationState) {
     const middleware = [
         thunk,
         routerMiddleware(history)
@@ -24,6 +24,6 @@ export default function configureStore(history: History, initialState?: Applicat
     return createStore(
         rootReducer,
         initialState,
-        compose(applyMiddleware(...middleware), ...enhancers)
+        compose(plyMiddleware(...middleware), ...enhancers)
     );
 }
