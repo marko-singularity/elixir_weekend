@@ -1,0 +1,47 @@
+.card-view {
+  display: flex;
+}
+.card {
+  display: inline-block;
+}
+.center {
+  display: inline;
+  text-align: center;
+  margin: 100px;
+  display: inline;
+}
+
+.search_icon {
+  padding-top: 10px;
+}
+
+.btn_green {
+  margin: 5px;
+}
+
+.price {
+  color: #09d113;
+  display: inline;
+  float: right;
+  font-size: 24px;
+  margin: 3px;
+}
+.card_footer {
+  justify-content: space-between;
+}
+.cart {
+  position: sticky;
+  color: #0a96a3;
+  margin-right: '10px';
+  top: 0;
+  margin-top: 2vh;
+  border: 3px solid #4891a0;
+  border-radius: 5%;
+}
+.product {
+  overflow-x: hidden;
+  max-height: 50vh;
+  min-height: 50vh;
+  overflow: scroll;
+  overflow-x: hidden;
+}

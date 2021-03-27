@@ -7,28 +7,27 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import "../../Css/ProductsCardView.css"
+import '../../Css/ProductsCardView.css';
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
     margin: 10,
-    display: "inline-block"
+    display: 'inline-block',
   },
 });
 
-export default function ImgMediaCard  (props) {
+export default function ImgMediaCard(props) {
   const classes = useStyles();
-  console.log(props.description)
 
   return (
-    <Card className={classes.root} >
+    <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           component="img"
           alt={props.alt}
           height="140"
           image={props.image}
-          title= {props.title}
+          title={props.title}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -40,12 +39,18 @@ export default function ImgMediaCard  (props) {
         </CardContent>
       </CardActionArea>
       <CardActions class="card_footer">
-        <Button size="small" class="btn_green">
+        <Button
+          size="small"
+          class="btn_green"
+          onClick={(data) =>
+            props.onClick({ name: props.heading, price: props.price })
+          }
+        >
           Dodaj u korpu
         </Button>
         <Typography gutterBottom variant="h5" component="h5" class="price">
-            {props.price}
-          </Typography>
+          {props.price + ' KM'}
+        </Typography>
       </CardActions>
     </Card>
   );

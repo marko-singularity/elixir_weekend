@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../SharedComponents/MaterialUi/Card';
-import SearchField from '../SharedComponents/MaterialUi/SearchField';
-import FloatingButton from '../SharedComponents/MaterialUi/FloatingButton';
 import '../Css/ProductsCardView.css';
 import { Helmet } from 'react-helmet';
 import * as applicaitonActions from '../Redux/Application/applicationActions';
@@ -9,13 +7,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Input from '../SharedComponents/Input/Input';
 import { Grid } from '@material-ui/core';
-
+import { CartProduct } from './CartProduct';
+import { Button } from '@material-ui/core';
 const Products = (props) => {
   useEffect(() => {
     props.actions.onChange({ id: 'headerBackgroundColor', value: '#4891A0' });
     props.actions.onChange({ id: 'headerColor', value: '#FFFFFF' });
   }, []);
-  const getProductsByName = (name) => {};
   const products = [
     {
       id: '1',
@@ -329,6 +327,7 @@ const Products = (props) => {
     });
     setProductsToShow(pomProducts);
   };
+  const [cartProducts, setCartProducts] = useState([]);
   return (
     <div>
       <Helmet>
@@ -359,9 +358,14 @@ const Products = (props) => {
                       alt="img.png"
                       title={product.name}
                       description={product.description}
-                      price={product.price + ' KM'}
+                      price={product.price}
                       image={product.imgUrl}
                       heading={product.name + '  ' + product.manufacturer}
+                      onClick={(data) => {
+                        let pomCartProduct = [...cartProducts];
+                        pomCartProduct.push(data);
+                        setCartProducts(pomCartProduct);
+                      }}
                     />
                   </Grid>
                 ))}
@@ -370,18 +374,83 @@ const Products = (props) => {
           </Grid>
         </Grid>
         <Grid item xs={3}>
-          <div id = "korpa" class="cart">
-            OVO JE KORPA 
+          <div id="korpa" class="cart">
+            <div
+              style={{
+                marginTop: '1px',
+                textAlign: 'center',
+                fontSize: '30px',
+              }}
+            >
+              Korpa
+            </div>
+            <hr />
+            <div class="product">
+              <Grid container direction="column" spacing={0}>
+                {cartProducts.map((product, index) => {
+                  return (
+                    <CartProduct
+                      backgroundColor={index % 2 == 0 ? '#4891A0' : '#FFFFFF'}
+                      color={index % 2 != 0 ? '#4891A0' : '#FFFFFF'}
+                      index={index + 1}
+                      name={product.name}
+                      price={product.price}
+                      deleteProduct={(index) => {
+                        let pomCartProduct = [...cartProducts];
+                        pomCartProduct.splice(index, 1);
+                        setCartProducts(pomCartProduct);
+                      }}
+                    />
+                  );
+                })}
+              </Grid>
+            </div>
+            <hr />
+            <div
+              style={{
+                marginTop: '1px',
+                fontSize: '25px',
+                display: 'flex',
+                justifyContent: 'space-between',
+              }}
+            >
+              Ukupna vrijednost:
+              <div
+                style={{
+                  display: 'inline-block',
+                  textAlign: 'right',
+                  color: 'green',
+                }}
+              >
+                {cartProducts.reduce(
+                  (accu, currentValue) =>
+                    Number(accu) + Number(currentValue.price),
+                  0
+                )}
+                KM
+              </div>
+            </div>
+            <div style={{ marginTop: '10px', fontWeight: 'bold' }}>
+              <Button
+                color="inherit"
+                style={{
+                  width: '100%',
+                  height: '50px',
+                  color: '#FFFFFF',
+                  backgroundColor: '#3D8392',
+                  border: '2px solid',
+                  borderColor: '#3D8392',
+                  borderRadius: '10px',
+                  boxShadow: '5px 10px #FFFFFF',
+                }}
+                onClick={() => {
+                  // setLoginFormOpen(true);
+                }}
+              >
+                Naruči
+              </Button>
+            </div>
           </div>
-          {/*
-          <FloatingButton
-            style={{
-              position: 'sticky',
-              top: '0',
-             
-            }}
-          ></FloatingButton>
-          */}
         </Grid>
       </Grid>
     </div>
