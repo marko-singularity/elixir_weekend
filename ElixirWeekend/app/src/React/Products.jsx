@@ -357,13 +357,18 @@ const Products = (props) => {
           </Grid>
         </Grid>
         <Grid item xs={3}>
+          <div id = "korpa" class="cart">
+            OVO JE KORPA 
+          </div>
+          {/*
           <FloatingButton
             style={{
-              position: 'fixed',
+              position: 'sticky',
               top: '0',
-              width: '100%',
+             
             }}
           ></FloatingButton>
+          */}
         </Grid>
       </Grid>
     </div>

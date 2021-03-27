@@ -32,3 +32,8 @@
    
     justify-content: space-between;
 }
+.cart{
+    position: sticky;
+    color: #0a96a3;
+    top:0;
+}
