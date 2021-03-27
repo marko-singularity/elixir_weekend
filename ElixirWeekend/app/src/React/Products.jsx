@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '../SharedComponents/MaterialUi/Card';
 import SearchField from '../SharedComponents/MaterialUi/SearchField';
 import FloatingButton from '../SharedComponents/MaterialUi/FloatingButton';
@@ -320,18 +320,14 @@ const Products = (props) => {
       manufacturer: 'BELUPO',
     },
   ];
-  const renderProduct = (product, index) => {
-    return (
-      <Card
-        key={index}
-        alt="img.png"
-        title={product.name}
-        description={product.description}
-        price={product.price + ' KM'}
-        image={product.imgUrl}
-        heading={product.name + '  ' + product.manufacturer}
-      />
-    );
+  const [productsToShow, setProductsToShow] = useState([...products]);
+  const setProductsToShowByProductName = (name) => {
+    let pomProducts = [];
+    products.map((product) => {
+      if (product.name.toLowerCase().includes(name.toLowerCase()))
+        pomProducts.push(product);
+    });
+    setProductsToShow(pomProducts);
   };
   return (
     <div>
@@ -347,11 +343,28 @@ const Products = (props) => {
             style={{ marginTop: '2vh' }}
           >
             <Grid item>
-              <Input label="Pretrazi proizvode" onChange={() => {}} />
+              <Input
+                label="Pretrazi proizvode"
+                onChange={(data) => {
+                  setProductsToShowByProductName(data.value);
+                }}
+              />
             </Grid>
             <Grid item>
               <Grid container direction="row" spacing={1}>
-                {products.map(renderProduct)}
+                {productsToShow.map((product, index) => (
+                  <Grid item>
+                    <Card
+                      key={index}
+                      alt="img.png"
+                      title={product.name}
+                      description={product.description}
+                      price={product.price + ' KM'}
+                      image={product.imgUrl}
+                      heading={product.name + '  ' + product.manufacturer}
+                    />
+                  </Grid>
+                ))}
               </Grid>
             </Grid>
           </Grid>
