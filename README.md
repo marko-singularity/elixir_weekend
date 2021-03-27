@@ -10,3 +10,6 @@ Narudzba(pregled trenutne narudzbe)
 Za pokretanje aplikacije neophodno je pokrenuti sljedece komande u terminalu VS Code ili VS okruzenja:
 npm install
 npm start
+
+
+Mock ups se nalaze u sljedecem direktorijumu: elixir_weekend/ElixirWeekend/Figma Mockups
