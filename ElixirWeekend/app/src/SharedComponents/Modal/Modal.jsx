@@ -11,8 +11,19 @@ const Modal = (props) => {
       aria-labelledby="scroll-dialog-title"
       aria-describedby="scroll-dialog-description"
     >
-      <DialogTitle>{props.title}</DialogTitle>
-      <DialogContent>{props.dialogContent}</DialogContent>
+      <DialogTitle
+        style={{
+          textAlign: 'center',
+          backgroundColor: 'white',
+          fontSize: '60px',
+          color: '#4891A0',
+        }}
+      >
+        {props.title}
+      </DialogTitle>
+      <DialogContent style={{ backgroundColor: '#4891A0' }}>
+        {props.dialogContent}
+      </DialogContent>
     </Dialog>
   );
 };

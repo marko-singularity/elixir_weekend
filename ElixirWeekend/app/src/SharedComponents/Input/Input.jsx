@@ -6,7 +6,14 @@ const Input = (props) => {
   return (
     <TextField
       variant="outlined"
+      size={'small'}
       {...props}
+      style={{
+        width: '70%',
+        height: '35px',
+        borderRadius: '10px',
+        backgroundColor: 'white',
+      }}
       onChange={(event) =>
         props.onChange({
           id: event.target.id,
